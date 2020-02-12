@@ -1,0 +1,5 @@
+docker commit -m="CentOS 7 With httpd installed" -a "Geek Lab" geeklab centos7/httpd:v1
+https://www.thegeekdiary.com/how-to-create-docker-image-from-a-container-and-dockerfile/
+---------------------
+#sysctl net.ipv4.conf.all.forwarding=1
+# sudo iptables -P FORWARD ACCEPT
