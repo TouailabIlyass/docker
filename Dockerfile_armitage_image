@@ -1,0 +1,14 @@
+FROM naik/kali-armitage:latest
+
+# Replace 1000 with your user / group id
+RUN export uid=0 gid=0 && \
+	mkdir -p /home/root && \
+    echo "root:x:${uid}:${gid}:root,,,:/home/root:/bin/bash" >> /etc/pwd && \
+    echo "root:x:${uid}:" >> /etc/group && \
+    echo "root ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/root && \
+    chmod 0440 /etc/sudoers.d/root && \
+    chown ${uid}:${gid} -R /home/root
+
+USER root
+ENV HOME /home/root
+CMD  /bin/bash
